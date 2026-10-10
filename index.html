@@ -378,7 +378,7 @@ poetry shell</code></pre>
 
                         <h4>Part A: Installing Docker Engine</h4>
                         <div class="code-block-container">
-                            <pre><code># 1. Update Package Index
+                            <pre><code id="doc-docker-engine"># 1. Update Package Index
 sudo apt update
 
 # 2. Install Required Dependencies
@@ -390,11 +390,14 @@ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o 
 sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
 # 4. Set Up the Docker Repository
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 
 # 5. Install Docker Engine
 sudo apt update
 sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</code></pre>
+                            <button class="copy-btn" data-target="doc-docker-engine" aria-label="Copy code">Copy</button>
                         </div>
                         
                         <div class="alert alert-note">
@@ -404,14 +407,15 @@ sudo apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin d
                         <h4>Part B: User Permissions (Recommended)</h4>
                         <p>To let OmixForge invoke Docker containers without requiring administrator privileges (sudo), run:</p>
                         <div class="code-block-container">
-                            <pre><code>sudo usermod -aG docker $USER
+                            <pre><code id="doc-docker-permissions">sudo usermod -aG docker $USER
 newgrp docker</code></pre>
+                            <button class="copy-btn" data-target="doc-docker-permissions" aria-label="Copy code">Copy</button>
                         </div>
 
                         <h4>Part C: Installing Nextflow</h4>
                         <p>Nextflow requires Java 11+. Use the following configuration steps:</p>
                         <div class="code-block-container">
-                            <pre><code># 1. Install Java
+                            <pre><code id="doc-nextflow-install"># 1. Install Java
 sudo apt update
 sudo apt install -y openjdk-11-jre-headless
 
@@ -420,6 +424,7 @@ curl -s https://get.nextflow.io | bash
 
 # 3. Make Nextflow globally available
 sudo mv nextflow /usr/local/bin/</code></pre>
+                            <button class="copy-btn" data-target="doc-nextflow-install" aria-label="Copy code">Copy</button>
                         </div>
                     </div>
 

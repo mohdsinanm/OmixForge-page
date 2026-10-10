@@ -1088,11 +1088,14 @@ body.dark-theme .mock-btn-delete {
     border-radius: var(--border-radius);
     padding: 48px;
     min-height: 500px;
+    min-width: 0;
     transition: background-color var(--transition-speed), border-color var(--transition-speed);
 }
 
 .doc-panel {
     display: none;
+    min-width: 0;
+    width: 100%;
 }
 
 .doc-panel.active {
